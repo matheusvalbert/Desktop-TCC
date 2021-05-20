@@ -22,3 +22,36 @@ export const Icon = styled.div`
   margin-top: 10px;
   font-size: 50px;
 `;
+
+export const Title = styled.h3`
+  font-size: 40px;
+  margin-bottom: 4%;
+  text-align: center;
+  padding-bottom: 20px;
+`;
+
+export const Form = styled.div`
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const FormButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+export const Submit = styled.button`
+  background: #1520AB;
+  height: 100px;
+  width: 300px;
+  border-color: #F2F2F2;
+  border-radius: 30px;
+`;
+
+export const Text = styled.h1`
+  font-size: 30px;
+  color: #FFF;
+`;

@@ -9,6 +9,7 @@ export function Admin({ children }) {
 
   const [ logged, setLogged ] = useState(false);
   const [ users, setUsers ] = useState({});
+  const [ page, setPage ] = useState('');
 
   async function usersList() {
 
@@ -34,7 +35,7 @@ export function Admin({ children }) {
   }
 
   return(
-    <AdminContext.Provider value={{ logged, users, loginAdmin, usersList }}>
+    <AdminContext.Provider value={{ logged, users, loginAdmin, usersList, page, setPage }}>
       { children }
     </AdminContext.Provider>
   );

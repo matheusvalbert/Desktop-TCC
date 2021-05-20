@@ -1,5 +1,16 @@
 import api from './api';
 
+export function deleteUser(username) {
+
+  const response = api.delete('/auth/delete', {
+    data: {
+      username: username
+    }
+  });
+
+  return response;
+}
+
 export function masterReset(username, newPassword) {
 
   const response = api.patch('/auth/masterReset', {
@@ -27,10 +38,11 @@ export function login(username, password) {
   return response;
 }
 
-export function register(username, password) {
+export function register(username, password, number) {
   const response = api.post('/auth/register', {
     username: username,
-    password: password
+    password: password,
+    number: number
   });
 
   return response;

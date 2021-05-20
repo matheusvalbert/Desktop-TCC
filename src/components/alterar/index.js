@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import { AiFillCaretRight } from "react-icons/ai";
+import { AiFillCaretRight, AiFillCaretLeft, AiOutlineClose } from "react-icons/ai";
 import { GrUpdate } from 'react-icons/gr';
 
-import { Container, Form, Title, ScrollList, FormSenha, FormNovaSenha, TextSenha, Input, Submit, Text, Item, TextItem, DivIcon, FormUpdate, IconPadding } from './styles';
+import { Container, Form, Title, ScrollList, FormSenha, FormNovaSenha, TextSenha, Input, Submit, SubmitYes, SubmitNo, Text, Item, TextItem, DivIcon, FormUpdate, IconPadding, Back, FormButtons } from './styles';
 
-import { masterReset } from '../../services/register';
+import { masterReset, deleteUser } from '../../services/register';
 
-import { useVisibility } from '../../hooks/modal';
 import { useAdmin } from '../../hooks/admin';
 
 function Alterar() {
 
-  const { setGMIsVisible } = useVisibility();
-
   const [ selected, setSelected ] = useState('');
   const [ newPassword, setNewPassword ] = useState('');
   const [ repeat, setRepeat ] = useState('');
+  const [ deleteUserFlag, setDeleteUserFlag ] = useState(false);
+  const [ deleteUserName, setDeleteUserName ] = useState('');
 
-  const { users } = useAdmin();
+  const { users, usersList, setPage } = useAdmin();
 
-  async function alterarSenha() {
-    if(selected && newPassword === repeat) {
+  async function changePassword() {
+    if(selected && newPassword === repeat && newPassword.length > 0) {
       try {
         const response = await masterReset(selected, newPassword);
 
@@ -35,39 +34,71 @@ function Alterar() {
     }
   }
 
+  async function removeUser() {
+    try{
+      const response = await deleteUser(deleteUserName);
+
+      if(response.data.userDeleted)
+        usersList();
+      else
+        alert('problema ao apagar usuário')
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
   const uList = users.user?.map((user) => {
     return <Item key={user} onClick={ () => setSelected(user) } style={selected === user ?
       {backgroundColor: '#1520AB'} : null}>
       <TextItem style={ selected === user ? {color: '#FFF'} : null }>{user}</TextItem>
-      <DivIcon><AiFillCaretRight style={ selected === user ? {color: '#FFF'} : null }/></DivIcon>
+      <DivIcon>
+        <div onClick={ () => { setDeleteUserFlag(true); setDeleteUserName(user) } }><AiOutlineClose size={20} color={'#FF0000'} /></div>
+        <AiFillCaretRight style={ selected === user ? {color: '#FFF'} : null }/>
+      </DivIcon>
     </Item>
-  })
+  });
 
   return(
-    <Container>
-      <Form>
-        <FormUpdate onClick={ () => setGMIsVisible(true) }>
-          <Title>Usuários:</Title>
-          <IconPadding><GrUpdate size={30}/></IconPadding>
-        </FormUpdate>
-        <ScrollList>
-          {uList}
-        </ScrollList>
-      </Form>
-      <Form>
-      <FormSenha>
-        <Title>Alterar senha:</Title>
-      </FormSenha>
-      <FormNovaSenha>
-        <TextSenha>Usuario:</TextSenha> <TextSenha style={{color: '#FF0000'}}> { selected }</TextSenha>
-        <TextSenha>Digite a nova senha:</TextSenha>
-        <Input type='password' value={newPassword} onChange={e => setNewPassword(e.target.value)}></Input>
-        <TextSenha>Digite novamente:</TextSenha>
-        <Input type='password' value={repeat} onChange={e => setRepeat(e.target.value)}></Input>
-        <Submit type='button' onClick={ () => { alterarSenha() } }><Text>Alterar senha</Text></Submit>
-      </FormNovaSenha>
-      </Form>
-    </Container>
+    <>
+      <Back onClick={ () => { setPage('') } }><AiFillCaretLeft size={35}/></Back>
+      <Container>
+        <Form>
+          <FormUpdate onClick={ () => usersList() }>
+            <Title>Usuários:</Title>
+            <IconPadding><GrUpdate size={30}/></IconPadding>
+          </FormUpdate>
+          <ScrollList>
+            {uList}
+          </ScrollList>
+        </Form>
+        {
+          deleteUserFlag ?
+            <Form>
+              <Title>Deseja apagar o usuário:</Title>
+              <TextSenha style={{color: '#FF0000'}}> { selected }</TextSenha>
+              <FormButtons>
+                <SubmitNo type='button' onClick={ () => { setDeleteUserFlag(false); setNewPassword(''); setRepeat('') } }><Text>Não</Text></SubmitNo>
+                <SubmitYes type='button' onClick={ () => { removeUser(); setDeleteUserFlag(false); setNewPassword(''); setRepeat(''); setSelected('') } }><Text>Sim</Text></SubmitYes>
+              </FormButtons>
+            </Form>
+          :
+          <Form>
+            <FormSenha>
+              <Title>Alterar senha:</Title>
+            </FormSenha>
+            <FormNovaSenha>
+              <TextSenha>Usuario:</TextSenha> <TextSenha style={{color: '#FF0000'}}> { selected }</TextSenha>
+              <TextSenha>Digite a nova senha:</TextSenha>
+              <Input type='password' value={newPassword} onChange={e => setNewPassword(e.target.value)}></Input>
+              <TextSenha>Digite novamente:</TextSenha>
+              <Input type='password' value={repeat} onChange={e => setRepeat(e.target.value)}></Input>
+              <Submit type='button' onClick={ () => { changePassword(); setNewPassword(''); setRepeat('') } }><Text>Alterar senha</Text></Submit>
+            </FormNovaSenha>
+          </Form>
+        }
+        </Container>
+    </>
   );
 }
 
