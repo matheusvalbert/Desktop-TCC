@@ -10,6 +10,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1680,
     height: 980,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
@@ -17,7 +18,7 @@ function createWindow() {
     }
   })
 
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   win.loadURL(
     isDev
