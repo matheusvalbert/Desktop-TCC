@@ -3,8 +3,6 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { Background, Container, Icon, Title, Form, FormButton, Submit, Text } from './styles';
 
-import { register } from '../../services/register';
-
 import { useVisibility } from '../../hooks/modal';
 import { useAdmin } from '../../hooks/admin';
 

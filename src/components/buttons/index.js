@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Button, Text } from './styles';
+import { Container, Button } from './styles';
 
 import { useVisibility } from '../../hooks/modal';
 
@@ -11,13 +11,13 @@ function Buttons() {
   return(
     <Container>
       <Button onClick={() => { setLastDetectionsIsVisible(true) }}>
-        <Text>Ultimas Detecções</Text>
+        <h1>Ultimas Detecções</h1>
       </Button>
       <Button onClick={() => { setHistoryIsVisible(true) }}>
-        <Text>Histórico</Text>
+        <h1>Histórico</h1>
       </Button>
       <Button onClick={() => { setGMIsVisible(true) }}>
-        <Text>Gerenciar Moradores</Text>
+        <h1>Gerenciar Moradores</h1>
       </Button>
     </Container>
   );

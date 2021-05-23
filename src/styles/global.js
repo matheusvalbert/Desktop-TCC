@@ -14,7 +14,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font: 16px;
+    font: 10px;
     background: linear-gradient(to bottom right, #03BB85, #98FF98);
   }
 `;

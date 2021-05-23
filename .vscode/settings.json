@@ -42,5 +42,6 @@
         "troca",
         "usu",
         "usuário"
-    ]
+    ],
+    "python.pythonPath": "/usr/local/bin/python3"
 }

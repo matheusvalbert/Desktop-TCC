@@ -18,7 +18,7 @@ function Cameras() {
           <option>Camera 1</option>
           <option>Camera 2</option>
           <option>Camera 3</option>
-        </SelectCamera>
+      </SelectCamera>
         <Camera />
       </FormCamera>
     </Container>

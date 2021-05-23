@@ -14,11 +14,11 @@ export const FormCamera = styled.form`
 `;
 
 export const SelectCamera = styled.select`
-  width: 620px;
-  height: 40px;
+  width: 37vw;
+  height: 6vh;
   background: white;
   color: '#000';
-  font-size: 18px;
+  font-size: 1.2em;
   padding-left: 5px;
   border: none;
   border-radius: 10px;
@@ -29,14 +29,13 @@ export const SelectCamera = styled.select`
     background: white;
     display: flex;
     white-space: pre;
-    min-height: 20px;
     padding: 0px 2px 1px;
   }
 `;
 
 export const Camera = styled.div`
-  height: 360px;
-  width: 640px;
+  height: 39vh;
+  width: 39vw;
   background: #000;
   border-radius: 20px;
 `;

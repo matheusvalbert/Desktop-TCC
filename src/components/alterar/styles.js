@@ -20,8 +20,8 @@ export const Title = styled.h3`
 `;
 
 export const ScrollList = styled.div`
-  height: 480px;
-  width: 400px;
+  height: 48vh;
+  width: 22vw;
   overflow-y: scroll;
 `;
 
@@ -41,8 +41,8 @@ export const TextSenha = styled.h1`
 `;
 
 export const Input = styled.input`
-  width: 300px;
-  height: 50px;
+  width: 18vw;
+  height: 5vh;
   margin-bottom: 20px;
   font-size: 25px;
   padding-left: 8px;
@@ -51,24 +51,24 @@ export const Input = styled.input`
 
 export const Submit = styled.button`
   background: #1520AB;
-  height: 60px;
-  width: 250px;
+  height: 6vh;
+  width: 16vw;
   border-color: #F2F2F2;
   border-radius: 30px;
 `;
 
 export const SubmitNo = styled.button`
   background: #1520AB;
-  height: 60px;
-  width: 250px;
+  height: 6vh;
+  width: 13vw;
   border-color: #F2F2F2;
   border-radius: 30px;
 `;
 
 export const SubmitYes = styled.button`
   background: #FF0000;
-  height: 60px;
-  width: 250px;
+  height: 6vh;
+  width: 13vw;
   border-color: #F2F2F2;
   border-radius: 30px;
 `;
@@ -78,7 +78,7 @@ export const FormButtons = styled.div`
 `;
 
 export const Text = styled.h1`
-  font-size: 30px;
+  font-size: 1.7em;
   color: #FFF;
 `;
 
@@ -86,7 +86,7 @@ export const Item = styled.div`
   display: flex;
   background: #FFF;
   margin-bottom: 5px;
-  height: 40px;
+  height: 4vh;
   align-items: center;
   justify-content: space-between;
   padding-left: 15px;
@@ -114,7 +114,7 @@ export const FormUpdate = styled.div`
 
 export const IconPadding = styled.div`
   position: absolute;
-  padding-left: 350px;
+  padding-left: 20vw;
 `;
 
 export const Back = styled.form`

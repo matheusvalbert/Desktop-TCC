@@ -11,22 +11,22 @@ export const Form = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 2vh;
 `;
 
 export const Title = styled.h3`
-  font-size: 40px;
-  padding-bottom: 10px;
+  font-size: 2rem;
+  padding-bottom: 1vh;
 `;
 
 export const ScrollList = styled.div`
-  height: 480px;
-  width: 400px;
+  height: 48vh;
+  width: 23vw;
   overflow-y: scroll;
 `;
 
 export const FormTitle = styled.div`
-  padding-bottom: 20px;
+  padding-bottom: 2vh;
 `;
 
 export const FormAdd = styled.form`
@@ -41,9 +41,9 @@ export const TextPassword = styled.h1`
 `;
 
 export const Input = styled.input`
-  width: 300px;
-  height: 50px;
-  margin-bottom: 20px;
+  width: 20vw;
+  height: 5vh;
+  margin-bottom: 2vh;
   font-size: 25px;
   padding-left: 8px;
   border-radius: 10px;
@@ -51,14 +51,14 @@ export const Input = styled.input`
 
 export const Submit = styled.button`
   background: #1520AB;
-  height: 60px;
-  width: 250px;
+  height: 6vh;
+  width: 15vw;
   border-color: #F2F2F2;
   border-radius: 30px;
 `;
 
 export const Text = styled.h1`
-  font-size: 30px;
+  font-size: 2em;
   color: #FFF;
 `;
 
@@ -66,7 +66,7 @@ export const Item = styled.div`
   display: flex;
   background: #FFF;
   margin-bottom: 5px;
-  height: 40px;
+  height: 4vh;
   align-items: center;
   justify-content: space-between;
   padding-left: 15px;
@@ -75,7 +75,7 @@ export const Item = styled.div`
 `;
 
 export const TextItem = styled.h3`
-  font-size: 20px;
+  font-size: 1.2em;
 `;
 
 export const FormUpdate = styled.div`
@@ -87,7 +87,7 @@ export const FormUpdate = styled.div`
 
 export const IconPadding = styled.div`
   position: absolute;
-  padding-left: 350px;
+  padding-left: 20vw;
 `;
 
 export const Back = styled.form`
@@ -97,6 +97,6 @@ export const Back = styled.form`
 `;
 
 export const TextAdd = styled.h1`
-  font-size: 30px;
+  font-size: 1.3em;
   margin-bottom: 10px;
 `;

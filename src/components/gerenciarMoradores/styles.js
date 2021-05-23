@@ -14,20 +14,21 @@ export const Container = styled.div`
   margin-left: 20%;
   margin-top: 10%;
   background: #F2F2F2;
+  border-radius: 10px;
 `;
 
 export const Icon = styled.div`
   float: right;
-  margin-right: 15px;
-  margin-top: 10px;
-  font-size: 50px;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  font-size: 3em;
 `;
 
 export const Title = styled.h3`
-  font-size: 40px;
+  font-size: 3rem;
   margin-bottom: 4%;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 2vh;
 `;
 
 export const Form = styled.div`
@@ -45,13 +46,15 @@ export const FormButton = styled.div`
 
 export const Submit = styled.button`
   background: #1520AB;
-  height: 100px;
-  width: 300px;
+  height: 10vh;
+  width: 18vw;
   border-color: #F2F2F2;
   border-radius: 30px;
+  padding-left: 1vh;
+  padding-right: 1vh;
 `;
 
 export const Text = styled.h1`
-  font-size: 30px;
+  font-size: 1.5rem;
   color: #FFF;
 `;

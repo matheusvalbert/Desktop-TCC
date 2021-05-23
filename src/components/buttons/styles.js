@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  right: 100px;
-  top : 490px;
-  width: 250px;
-  height: 430px;
+  right: 6vw;
+  top : 53vh;
+  width: 10vw;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,13 +14,15 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   background: #1520AB;
-  height: 100px;
-  width: 250px;
+  height: 10vh;
+  width: 15vw;
+  padding-left: 1vh;
+  padding-right: 1vh;
   border-color: #98FF98;
   border-radius: 30px;
-`;
 
-export const Text = styled.h1`
-  font-size: 30px;
-  color: #FFF;
+  h1 {
+    font-size: 1.8em;
+    color: #FFF;
+  }
 `;
