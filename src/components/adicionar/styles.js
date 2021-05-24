@@ -15,7 +15,7 @@ export const Form = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 2rem;
+  font-size: calc(1.5vh + 1.5vw);
   padding-bottom: 1vh;
 `;
 
@@ -36,17 +36,16 @@ export const FormAdd = styled.form`
 `;
 
 export const TextPassword = styled.h1`
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: calc(1vh + 1vw);
 `;
 
 export const Input = styled.input`
-  width: 20vw;
   height: 5vh;
+  width: 20vw;
   margin-bottom: 2vh;
-  font-size: 25px;
-  padding-left: 8px;
-  border-radius: 10px;
+  font-size: calc(1vh + 1vw);
+  padding-left: calc(.5vh + .5vw);
+  border-radius: calc(.5vh + .5vw);
 `;
 
 export const Submit = styled.button`
@@ -54,28 +53,28 @@ export const Submit = styled.button`
   height: 6vh;
   width: 15vw;
   border-color: #F2F2F2;
-  border-radius: 30px;
+  border-radius: calc(1vh + 1vw);
 `;
 
 export const Text = styled.h1`
-  font-size: 2em;
+  font-size: calc(1vh + 1vw);
   color: #FFF;
 `;
 
 export const Item = styled.div`
   display: flex;
   background: #FFF;
-  margin-bottom: 5px;
+  margin-bottom: .5vh;
   height: 4vh;
   align-items: center;
   justify-content: space-between;
-  padding-left: 15px;
-  border-radius: 10px;
-  margin-right: 5px;
+  padding-left: 1vw;
+  border-radius: calc(.3vh + .3vw);
+  margin-right: .5vw;
 `;
 
 export const TextItem = styled.h3`
-  font-size: 1.2em;
+  font-size: calc(.8vh + .8vw);
 `;
 
 export const FormUpdate = styled.div`
@@ -88,15 +87,17 @@ export const FormUpdate = styled.div`
 export const IconPadding = styled.div`
   position: absolute;
   padding-left: 20vw;
+  font-size: calc(1.4vh + 1.4vw);
 `;
 
 export const Back = styled.form`
   position: absolute;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 1vh;
+  padding-left: .5vw;
+  font-size: calc(1.4vh + 1.4vw);
 `;
 
 export const TextAdd = styled.h1`
-  font-size: 1.3em;
-  margin-bottom: 10px;
+  font-size: calc(1vh + 1vw);
+  margin-bottom: 1vh;
 `;

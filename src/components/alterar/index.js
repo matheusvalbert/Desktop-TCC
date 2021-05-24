@@ -53,20 +53,20 @@ function Alterar() {
       {backgroundColor: '#1520AB'} : null}>
       <TextItem style={ selected === user ? {color: '#FFF'} : null }>{user}</TextItem>
       <DivIcon>
-        <div onClick={ () => { setDeleteUserFlag(true); setDeleteUserName(user) } }><AiOutlineClose size={20} color={'#FF0000'} /></div>
-        <AiFillCaretRight style={ selected === user ? {color: '#FFF'} : null }/>
+        <div onClick={ () => { setDeleteUserFlag(true); setDeleteUserName(user) } }><AiOutlineClose color={'#FF0000'} size={'calc(1vh + 1vw)'}/></div>
+        <AiFillCaretRight style={ selected === user ? {color: '#FFF'} : null } size={'calc(1vh + 1vw'}/>
       </DivIcon>
     </Item>
   });
 
   return(
     <>
-      <Back onClick={ () => { setPage('') } }><AiFillCaretLeft size={35}/></Back>
+      <Back onClick={ () => { setPage('') } }><AiFillCaretLeft /></Back>
       <Container>
         <Form>
           <FormUpdate onClick={ () => usersList() }>
             <Title>Usuários:</Title>
-            <IconPadding><GrUpdate size={30}/></IconPadding>
+            <IconPadding><GrUpdate /></IconPadding>
           </FormUpdate>
           <ScrollList>
             {uList}

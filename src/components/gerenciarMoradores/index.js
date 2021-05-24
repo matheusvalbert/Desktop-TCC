@@ -22,7 +22,7 @@ function GerenciarMoradores() {
 
   return(
     <Background id='modal' onClick={closeModal}>
-      <Container>
+    <Container>
       <Icon onClick={ () => { setGMIsVisible(false) } }><AiOutlineClose /></Icon>
       {logged
         ?

@@ -19,10 +19,10 @@ export const Button = styled.button`
   padding-left: 1vh;
   padding-right: 1vh;
   border-color: #98FF98;
-  border-radius: 30px;
+  border-radius: calc(1vh + 1vw);
 
   h1 {
-    font-size: 1.8em;
+    font-size: calc(1vh + 1vw);
     color: #FFF;
   }
 `;

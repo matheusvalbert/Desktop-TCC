@@ -46,12 +46,12 @@ function Adicionar() {
 
   return(
     <>
-      <Back onClick={ () => { setPage('') } }><AiFillCaretLeft size={35}/></Back>
+      <Back onClick={ () => { setPage('') } }><AiFillCaretLeft /></Back>
       <Container>
         <Form>
           <FormUpdate onClick={ () => usersList() }>
             <Title>Usuários:</Title>
-            <IconPadding><GrUpdate size={30}/></IconPadding>
+            <IconPadding><GrUpdate /></IconPadding>
           </FormUpdate>
           <ScrollList>
             {uList}

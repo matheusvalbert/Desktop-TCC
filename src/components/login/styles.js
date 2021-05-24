@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -9,8 +10,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h3`
-  font-size: 3rem;
-  margin-bottom: 4%;
+  font-size: calc(1.8vh + 1.8vw);
+  margin-bottom: 4vh;
 `;
 
 export const Form = styled.form`
@@ -21,17 +22,17 @@ export const Form = styled.form`
 `;
 
 export const InputText = styled.h1`
-  font-size: 1.5rem;
+  font-size: calc(1vh + 1vw);
   margin-bottom: 1vh;
 `;
 
 export const Input = styled.input`
-  width: 15vw;
   height: 5vh;
-  margin-bottom: 20px;
-  font-size: 25px;
-  padding-left: 8px;
-  border-radius: 10px;
+  width: 15vw;
+  margin-bottom: 2vh;
+  font-size: calc(1vh + 1vw);
+  padding-left: .8vw;
+  border-radius: calc(.5vh + .5vw);
 `;
 
 export const Submit = styled.button`
@@ -39,10 +40,10 @@ export const Submit = styled.button`
   height: 10vh;
   width: 15vw;
   border-color: #F2F2F2;
-  border-radius: 30px;
+  border-radius: calc(1.2vh + 1.2vw);
 `;
 
 export const Text = styled.h1`
-  font-size: 30px;
+  font-size: calc(1.2vh + 1.2vw);
   color: #FFF;
 `;

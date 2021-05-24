@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 40vh;
   width: 75vw;
   margin-top: 4vh;
+  margin-bottom: 5vh;
   margin-left: 5vw;
-  margin-bottom: 5vw;
-  border-radius: 20px;
+  border-radius: calc(.5vh + .5vw);
 `;

@@ -3,30 +3,31 @@ import styled from 'styled-components';
 export const Background = styled.div`
   position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: rgba(46, 49, 49, .95);
 `;
 
 export const Container = styled.div`
-  width: 60%;
-  height: 60%;
-  margin-left: 20%;
-  margin-top: 10%;
+  height: 60vh;
+  width: 60vw;
+  margin-left: 20vw;
+  margin-top: 20vh;
   background: #F2F2F2;
-  border-radius: 10px;
+  border-radius: calc(.5vh + .5vw);
 `;
 
 export const Icon = styled.div`
-  float: right;
-  padding-right: 1vw;
+  position: absolute;
+  right: 0;
+  padding-right: 21vw;
   padding-top: 1vh;
-  font-size: 3em;
+  font-size: calc(1.8vh + 1.8vw);
 `;
 
-export const Title = styled.h3`
-  font-size: 3rem;
-  margin-bottom: 4%;
+export const Title = styled.h1`
+  font-size: calc(1.7vh + 1.7vw);
+  margin-bottom: 4vh;
   text-align: center;
   padding-bottom: 2vh;
 `;
@@ -49,12 +50,12 @@ export const Submit = styled.button`
   height: 10vh;
   width: 18vw;
   border-color: #F2F2F2;
-  border-radius: 30px;
+  border-radius: calc(1vh + 1vw);
   padding-left: 1vh;
   padding-right: 1vh;
 `;
 
 export const Text = styled.h1`
-  font-size: 1.5rem;
+  font-size: calc(1vh + 1vw);
   color: #FFF;
 `;
