@@ -23,6 +23,7 @@ export const Icon = styled.div`
   padding-right: 21vw;
   padding-top: 1vh;
   font-size: calc(1.8vh + 1.8vw);
+  z-index: 1;
 `;
 
 export const Title = styled.h1`
