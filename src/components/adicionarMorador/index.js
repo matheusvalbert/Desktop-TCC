@@ -4,13 +4,13 @@ import { GrUpdate } from 'react-icons/gr';
 
 import { Container, Form, Title, ScrollList, FormTitle, FormAdd, TextAdd, Input, Submit, Text, Item, TextItem, FormUpdate, IconPadding, Back } from './styles';
 
-import { useAdmin } from '../../hooks/admin';
+import { useMorador } from '../../hooks/morador';
 
 import { register } from '../../services/register';
 
-function Adicionar() {
+function AdicionarMorador() {
 
-  const { setPage, usersList, users } = useAdmin();
+  const { setPage, usersList, users } = useMorador();
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -76,4 +76,4 @@ function Adicionar() {
   );
 }
 
-export default Adicionar;
+export default AdicionarMorador;

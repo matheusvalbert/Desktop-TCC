@@ -10,7 +10,8 @@ import Historico from './components/historico';
 import GerenciarMoradores from './components/gerenciarMoradores';
 
 import { useVisibility } from './hooks/modal';
-import { Admin } from './hooks/admin';
+import { Morador } from './hooks/morador';
+import { Ambiente } from './hooks/ambiente';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
 
       { lastDetectionsIsVisible ? <UltimasDeteccoes /> : null }
       { historyIsVisible ? <Historico /> : null }
-      { gMIsVisible ? <Admin><GerenciarMoradores /></Admin> : null }
+      { gMIsVisible ? <Morador><Ambiente><GerenciarMoradores /></Ambiente></Morador> : null }
 
       <GlobalStyle />
     </>

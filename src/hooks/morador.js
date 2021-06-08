@@ -3,9 +3,9 @@ import React, { useState, createContext, useContext } from 'react';
 import api from '../services/api';
 import { login, getUsers } from '../services/register';
 
-const AdminContext = createContext();
+const MoradorContext = createContext();
 
-export function Admin({ children }) {
+export function Morador({ children }) {
 
   const [ logged, setLogged ] = useState(false);
   const [ users, setUsers ] = useState({});
@@ -35,12 +35,12 @@ export function Admin({ children }) {
   }
 
   return(
-    <AdminContext.Provider value={{ logged, users, loginAdmin, usersList, page, setPage }}>
+    <MoradorContext.Provider value={{ logged, users, loginAdmin, usersList, page, setPage }}>
       { children }
-    </AdminContext.Provider>
+    </MoradorContext.Provider>
   );
 }
 
-export function useAdmin() {
-  return useContext(AdminContext);
+export function useMorador() {
+  return useContext(MoradorContext);
 }

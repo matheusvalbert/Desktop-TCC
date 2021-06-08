@@ -4,16 +4,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Background, Container, Icon, Title, Form, FormButton, Submit, Text } from './styles';
 
 import { useVisibility } from '../../hooks/modal';
-import { useAdmin } from '../../hooks/admin';
+import { useMorador } from '../../hooks/morador';
+import { useAmbiente } from '../../hooks/ambiente';
 
 import Login from '../login';
-import Alterar from '../alterar';
-import Adicionar from '../adicionar';
+import AlterarMorador from '../alterarMorador';
+import AdicionarMorador from '../adicionarMorador';
+import Ambientes from '../ambientes';
 
 function GerenciarMoradores() {
 
   const { setGMIsVisible } = useVisibility();
-  const { logged, page, setPage } = useAdmin();
+  const { logged, page, setPage } = useMorador();
+  const { ambientesList } = useAmbiente();
 
   const closeModal = (e) => {
     if(e.target.id === 'modal')
@@ -31,22 +34,31 @@ function GerenciarMoradores() {
           <Form>
             <Title>O que deseja fazer:</Title>
             <FormButton>
-              <Submit onClick={ () => { setPage('adicionar') } }>
+              <Submit onClick={ () => { setPage('adicionarMorador') } }>
                 <Text>Adicionar novo usuário</Text>
               </Submit>
-              <Submit onClick={ () => { setPage('alterar') } }>
+              <Submit onClick={ () => { setPage('alterarMorador') } }>
                 <Text>Alterar dados do usuário</Text>
+              </Submit>
+            </FormButton>
+            <FormButton>
+              <Submit onClick={ () => { setPage('Ambiente'); ambientesList() } }>
+                <Text>Gerenciar Ambientes</Text>
               </Submit>
             </FormButton>
           </Form>
           :
-          page === 'adicionar'
+          page === 'adicionarMorador'
           ?
-            <Adicionar />
+            <AdicionarMorador />
           :
-          page === 'alterar'
+          page === 'alterarMorador'
           ?
-            <Alterar />
+            <AlterarMorador />
+          :
+          page === 'Ambiente'
+          ?
+            <Ambientes />
           :
             null
         :

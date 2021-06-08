@@ -44,6 +44,7 @@ export const FormButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding-bottom: 2vh;
 `;
 
 export const Submit = styled.button`

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useAdmin } from '../../hooks/admin';
+import { useMorador } from '../../hooks/morador';
 
 import { Container, Title, Form, InputText, Input, Submit, Text } from './styles';
 
@@ -9,7 +9,7 @@ function Login() {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const { loginAdmin } = useAdmin();
+  const { loginAdmin } = useMorador();
 
   return(
     <Container>

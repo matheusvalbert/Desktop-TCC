@@ -6,9 +6,9 @@ import { Container, Form, Title, ScrollList, FormSenha, FormNovaSenha, TextSenha
 
 import { masterReset, deleteUser } from '../../services/register';
 
-import { useAdmin } from '../../hooks/admin';
+import { useMorador } from '../../hooks/morador';
 
-function Alterar() {
+function AlterarMorador() {
 
   const [ selected, setSelected ] = useState('');
   const [ newPassword, setNewPassword ] = useState('');
@@ -16,7 +16,7 @@ function Alterar() {
   const [ deleteUserFlag, setDeleteUserFlag ] = useState(false);
   const [ deleteUserName, setDeleteUserName ] = useState('');
 
-  const { users, usersList, setPage } = useAdmin();
+  const { users, usersList, setPage } = useMorador();
 
   async function changePassword() {
     if(selected && newPassword === repeat && newPassword.length > 0) {
@@ -102,4 +102,4 @@ function Alterar() {
   );
 }
 
-export default Alterar;
+export default AlterarMorador;
