@@ -5,6 +5,8 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
   padding-top: 6vh;
+  width: 80vw;
+  margin-left: 3vw;
 `;
 
 export const FormCamera = styled.form`
@@ -14,7 +16,7 @@ export const FormCamera = styled.form`
 `;
 
 export const SelectCamera = styled.select`
-  width: 37vw;
+  width: 33vw;
   height: 6vh;
   background: white;
   color: '#000';
@@ -35,7 +37,7 @@ export const SelectCamera = styled.select`
 
 export const Camera = styled.div`
   height: 39vh;
-  width: 39vw;
+  width: 35vw;
   background: #000;
   border-radius: calc(.6vh + .6vw);
 `;

@@ -25,3 +25,10 @@ export function apagarAmbiente(name) {
 
   return response;
 }
+
+export function getReservas() {
+
+  const response = api.get('/reservas/getReservas');
+
+  return response;
+}

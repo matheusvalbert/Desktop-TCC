@@ -4,12 +4,12 @@ const Visibility = createContext();
 
 export function GerenciarMoradoresHook({ children }) {
 
-  const [ lastDetectionsIsVisible, setLastDetectionsIsVisible ] = useState(false);
-  const [ historyIsVisible, setHistoryIsVisible ] = useState(false);
+  const [ detection, setDetection ] = useState(false);
+  const [ reservasIsVisible, setReservasIsVisible ] = useState(false);
   const [ gMIsVisible, setGMIsVisible ] = useState(false);
 
   return(
-    <Visibility.Provider value={{ lastDetectionsIsVisible, setLastDetectionsIsVisible, historyIsVisible, setHistoryIsVisible, gMIsVisible, setGMIsVisible  }}>
+    <Visibility.Provider value={{ detection, setDetection, reservasIsVisible, setReservasIsVisible, gMIsVisible, setGMIsVisible }}>
       { children }
     </Visibility.Provider>
   );

@@ -45,6 +45,9 @@ function GerenciarMoradores() {
               <Submit onClick={ () => { setPage('Ambiente'); ambientesList() } }>
                 <Text>Gerenciar Ambientes</Text>
               </Submit>
+              <Submit onClick={ () => { setPage('') } }>
+                <Text>Histórico de entradas</Text>
+              </Submit>
             </FormButton>
           </Form>
           :

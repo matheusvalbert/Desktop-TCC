@@ -5,8 +5,7 @@ import Cameras from './components/cameras';
 import Terminal from './components/terminal';
 import Buttons from './components/buttons';
 
-import UltimasDeteccoes from './components/ultimasDeteccoes';
-import Historico from './components/historico';
+import Reservas from './components/reservas';
 import GerenciarMoradores from './components/gerenciarMoradores';
 
 import { useVisibility } from './hooks/modal';
@@ -15,7 +14,7 @@ import { Ambiente } from './hooks/ambiente';
 
 function App() {
 
-  const { lastDetectionsIsVisible, historyIsVisible, gMIsVisible } = useVisibility();
+  const { reservasIsVisible, gMIsVisible } = useVisibility();
 
   return(
     <>
@@ -23,8 +22,7 @@ function App() {
       <Terminal />
       <Buttons />
 
-      { lastDetectionsIsVisible ? <UltimasDeteccoes /> : null }
-      { historyIsVisible ? <Historico /> : null }
+      { reservasIsVisible ? <Reservas /> : null }
       { gMIsVisible ? <Morador><Ambiente><GerenciarMoradores /></Ambiente></Morador> : null }
 
       <GlobalStyle />

@@ -1,23 +1,31 @@
 import React from 'react';
 
-import { Container, Button } from './styles';
+import { Container, Button, ButtonRed } from './styles';
 
 import { useVisibility } from '../../hooks/modal';
 
 function Buttons() {
 
-  const { setLastDetectionsIsVisible, setHistoryIsVisible, setGMIsVisible } = useVisibility();
+  const { detection, setDetection, setReservasIsVisible, setGMIsVisible } = useVisibility();
 
   return(
     <Container>
-      <Button onClick={() => { setLastDetectionsIsVisible(true) }}>
-        <h1>Ultimas Detecções</h1>
-      </Button>
-      <Button onClick={() => { setHistoryIsVisible(true) }}>
-        <h1>Histórico</h1>
+      {
+        detection
+          ?
+        <ButtonRed onClick={ () => { setDetection(!detection) } }>
+          <h1>Parar Detecção</h1>
+        </ButtonRed>
+          :
+        <Button onClick={ () => { setDetection(!detection) } }>
+          <h1>Iniciar Detecção</h1>
+        </Button>
+      }
+      <Button onClick={() => { setReservasIsVisible(true) }}>
+        <h1>Visualizar reservas</h1>
       </Button>
       <Button onClick={() => { setGMIsVisible(true) }}>
-        <h1>Gerenciar Moradores</h1>
+        <h1>Gerenciar</h1>
       </Button>
     </Container>
   );

@@ -1,12 +1,17 @@
 import React from 'react';
 
+import { useVisibility } from '../../hooks/modal';
+
 import { Container, FormCamera, SelectCamera, Camera } from './styles';
 
 function Cameras() {
+
+  const { detection } = useVisibility();
+
   return(
     <Container>
       <FormCamera>
-        <SelectCamera>
+        <SelectCamera disabled={detection}>
           <option>Camera 1</option>
           <option>Camera 2</option>
           <option>Camera 3</option>
@@ -14,11 +19,11 @@ function Cameras() {
         <Camera />
       </FormCamera>
       <FormCamera>
-        <SelectCamera>
+        <SelectCamera disabled={detection}>
           <option>Camera 1</option>
           <option>Camera 2</option>
           <option>Camera 3</option>
-      </SelectCamera>
+        </SelectCamera>
         <Camera />
       </FormCamera>
     </Container>

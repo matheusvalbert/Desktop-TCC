@@ -1,10 +1,17 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Output, Title } from './styles';
 
 function Terminal() {
   return(
-    <Container />
+    <Container>
+      <Output>
+        <Title>Detecção de placas</Title>
+      </Output>
+      <Output>
+        <Title>Detecção de faces</Title>
+      </Output>
+    </Container>
   );
 }
 
