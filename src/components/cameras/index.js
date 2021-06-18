@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
-import Webcam from 'react-webcam';
+import React, { useEffect, useRef } from 'react';
 
 import { useVisibility } from '../../hooks/modal';
 import { useCamera } from '../../hooks/camera';
 
-import { Container, FormCamera, SelectCamera, Camera } from './styles';
+import { Container, FormCamera, SelectCamera, Camera, Cam } from './styles';
 
 function Cameras() {
+
+  const camOneRef = useRef(null);
+  const camTwoRef = useRef(null);
 
   const { detection } = useVisibility();
   const { deviceInfo, setDeviceInfo, setDeviceOneSelected, setDeviceTwoSelected, deviceOneId, deviceTwoId } = useCamera();
@@ -43,7 +45,9 @@ function Cameras() {
           {
             detection
               ?
-            <Webcam videoConstraints={{ deviceId: deviceOneId }} />
+            <Cam
+              videoConstraints={{ deviceId: deviceOneId }}
+            />
               :
             null
           }
@@ -58,7 +62,9 @@ function Cameras() {
           {
             detection
               ?
-            <Webcam videoConstraints={{ deviceId: deviceTwoId }} />
+            <Cam
+              videoConstraints={{ deviceId: deviceTwoId }}
+            />
               :
             null
           }

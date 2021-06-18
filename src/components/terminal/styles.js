@@ -20,4 +20,5 @@ export const Output = styled.div`
 export const Title = styled.h1`
   text-align: center;
   margin-top: 1vh;
+  font-size: calc(1vh + 1vw);
 `;
