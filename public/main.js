@@ -1,13 +1,18 @@
 const { app, BrowserWindow } = require('electron');
+const { spawn } = require('child_process');
 
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+const detect = spawn('python3', ['detection/detect.py']);
+
+process.on('exit', () => {
+  detect.kill();
+});
+
 require('@electron/remote/main').initialize();
-require('./ipc');
 
 function createWindow() {
-  // Create the browser window.
   const win = new BrowserWindow({
     minWidth: 420,
     minHeight: 245,
@@ -23,7 +28,7 @@ function createWindow() {
     }
   });
 
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
 
   win.loadURL(
     isDev
@@ -34,18 +39,13 @@ function createWindow() {
 
 app.on('ready', createWindow);
 
-// Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit();
   }
 })
 
 app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 })
 

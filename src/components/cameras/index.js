@@ -5,7 +5,7 @@ import { useCamera } from '../../hooks/camera';
 
 import { Container, FormCamera, SelectCamera, Camera, Cam } from './styles';
 
-const { ipcRenderer } = window.require('electron');
+import { sendImage } from '../../services/localData';
 
 function Cameras() {
 
@@ -36,12 +36,13 @@ function Cameras() {
     });
   }
 
-  const capture = useCallback(() => {
+  const capture = useCallback(async () => {
     const imgOne = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
     const imgTwo = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
 
-    ipcRenderer.send('imgOne', imgOne);
-    ipcRenderer.send('imgTwo', imgTwo);
+    const response = await sendImage(imgOne, imgTwo);
+
+    console.log(response.data);
 
   }, [camOneRef, camTwoRef]);
 
