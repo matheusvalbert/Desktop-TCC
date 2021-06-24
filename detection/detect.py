@@ -51,7 +51,6 @@ def detection(img, labelDetect):
             x, y, w, h = boxes[i]
             size = w * h
             label = str(classes[class_ids[i]])
-            print(labelDetect, label, biggest)
             if size > biggest and labelDetect == label:
                 biggest = size
                 boxes_biggest = boxes[i]
