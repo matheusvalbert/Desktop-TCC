@@ -6,7 +6,7 @@ const isDev = require('electron-is-dev');
 
 const detect = spawn('python3', ['detection/detect.py']);
 
-process.on('exit', () => {
+process.on('exit', function() {
   detect.kill();
 });
 
