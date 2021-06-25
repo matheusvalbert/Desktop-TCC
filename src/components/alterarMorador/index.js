@@ -90,9 +90,9 @@ function AlterarMorador() {
             <FormNovaSenha>
               <TextSenha>Usuario:</TextSenha> <TextSenha style={{color: '#FF0000'}}> { selected }</TextSenha>
               <TextSenha>Digite a nova senha:</TextSenha>
-              <Input type='password' value={newPassword} onChange={e => setNewPassword(e.target.value)}></Input>
+              <Input type='password' value={newPassword} onChange={e => setNewPassword(e.target.value)} />
               <TextSenha>Digite novamente:</TextSenha>
-              <Input type='password' value={repeat} onChange={e => setRepeat(e.target.value)}></Input>
+              <Input type='password' value={repeat} onChange={e => setRepeat(e.target.value)} />
               <Submit type='button' onClick={ () => { changePassword(); setNewPassword(''); setRepeat('') } }><Text>Alterar senha</Text></Submit>
             </FormNovaSenha>
           </Form>

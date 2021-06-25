@@ -63,11 +63,11 @@ function AdicionarMorador() {
           </FormTitle>
           <FormAdd>
             <TextAdd>Digite o nome de usuário:</TextAdd>
-            <Input type='input' value={username} onChange={e => setUsername(e.target.value)}></Input>
+            <Input type='input' value={username} onChange={e => setUsername(e.target.value)} />
             <TextAdd>Digite a senha:</TextAdd>
-            <Input type='password' value={password} onChange={e => setPassword(e.target.value)}></Input>
+            <Input type='password' value={password} onChange={e => setPassword(e.target.value)} />
             <TextAdd>Número da casa:</TextAdd>
-            <Input type='input' value={number} onChange={e => setNumber(e.target.value)}></Input>
+            <Input type='input' value={number} onChange={e => setNumber(e.target.value)} />
             <Submit type='button' onClick={ () => { newUser() } }><Text>Adicionar</Text></Submit>
           </FormAdd>
         </Form>

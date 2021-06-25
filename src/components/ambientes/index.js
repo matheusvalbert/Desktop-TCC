@@ -95,7 +95,7 @@ function Ambientes() {
             </FormTitle>
             <FormAdd>
               <TextAdd>Digite o nome do ambiente:</TextAdd>
-              <Input type='input' value={ambienteName} onChange={e => setAmbienteName(e.target.value)}></Input>
+              <Input type='input' value={ambienteName} onChange={e => setAmbienteName(e.target.value)} />
               <Submit type='button' onClick={ () => { adicionarAmbiente() } }><Text>Adicionar</Text></Submit>
             </FormAdd>
           </Form>

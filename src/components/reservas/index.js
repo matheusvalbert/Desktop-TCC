@@ -38,7 +38,6 @@ function Reservas() {
     setReservasAmbiente(ambiente);
     setDatas(datas);
     setNumbers(numbers);
-    console.log(numbers);
   }
 
   useEffect(() => {
