@@ -10,21 +10,14 @@ process.on('exit', function() {
   detect.kill();
 });
 
-require('@electron/remote/main').initialize();
-
 function createWindow() {
   const win = new BrowserWindow({
-    minWidth: 420,
-    minHeight: 245,
+    minWidth: 1000,
+    minHeight: 600,
     width: 1680,
     height: 980,
-    maxWidth: 6720,
-    maxHeight: 3920,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
-      contextIsolation:false,
-      preload: __dirname + '/preload.js'
+      nodeIntegration: false
     }
   });
 
@@ -40,13 +33,12 @@ function createWindow() {
 app.on('ready', createWindow);
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-})
+  app.quit();
+});
 
 app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow();
-})
+  if(BrowserWindow.getAllWindows().length === 0)
+    createWindow();
+});
 
 app.allowRendererProcessReuse = false;
