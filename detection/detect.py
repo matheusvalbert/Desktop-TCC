@@ -70,7 +70,7 @@ def base64decode(img):
     return image
 
 def base64encode(img):
-    _, bufArr = cv2.imencode('.jpg', img)
+    _, bufArr = cv2.imencode('.jpeg', img)
     bytes = bufArr.tobytes()
     imgData = base64.b64encode(bytes)
     return imgData
@@ -80,43 +80,43 @@ cors = CORS(app)
 
 @app.route('/images', methods=['POST'])
 def images():
-    flagOne = False
-    flagTwo = False
-    imgOne = request.get_json().get('imgOne')
-    imgTwo = request.get_json().get('imgTwo')
-    imgOne = base64decode(imgOne)
-    imgTwo = base64decode(imgTwo)
-    imgOne, labelOne = detection(imgOne, 'Plate')
-    imgTwo, labelTwo = detection(imgTwo, 'Face')
-    if labelOne == 'Plate':
+    plateFlag = False
+    faceFlag = False
+    plate = request.get_json().get('plate')
+    face = request.get_json().get('face')
+    plate = base64decode(plate)
+    face = base64decode(face)
+    plate, plateLabel = detection(plate, 'Plate')
+    face, faceLabel = detection(face, 'Face')
+    if plateLabel == 'Plate':
         try:
-            imgOne = base64encode(imgOne)
-            flagOne = True
+            plate = base64encode(plate)
+            plateFlag = True
         except:
             pass
-    if labelTwo == 'Face':
+    if faceLabel == 'Face':
         try:
-            imgTwo = base64encode(imgTwo)
-            flagTwo = True
+            face = base64encode(face)
+            faceFlag = True
         except:
             pass
 
-    if flagOne == True:
-        imgOne = str(imgOne)
-        imgOne = imgOne[2:]
-        imgOne = imgOne[:-1]
-    if flagTwo == True:
-        imgTwo = str(imgTwo)
-        imgTwo = imgTwo[2:]
-        imgTwo = imgTwo[:-1]
+    if plateFlag == True:
+        plate = str(plate)
+        plate = plate[2:]
+        plate = plate[:-1]
+    if faceFlag == True:
+        face = str(face)
+        face = face[2:]
+        face = face[:-1]
 
-    if flagOne == True and flagTwo == False:
-        return { 'imgOne': imgOne, 'imgTwo': False }
-    elif flagOne == False and flagTwo == True:
-        return { 'imgOne': False, 'imgTwo': imgTwo }
-    elif flagOne == False and flagTwo == False:
-        return { 'imgOne': False, 'imgTwo': False }
+    if plateFlag == True and faceFlag == False:
+        return { 'plate': plate, 'face': False }
+    elif plateFlag == False and faceFlag == True:
+        return { 'plate': False, 'face': face }
+    elif plateFlag == False and faceFlag == False:
+        return { 'plate': False, 'face': False }
     else:
-        return { 'imgOne': imgOne, 'imgTwo': imgTwo }
+        return { 'plate': plate, 'face': face }
 
 app.run(host='localhost', port=5000)

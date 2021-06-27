@@ -5,7 +5,7 @@ import { useCamera } from '../../hooks/camera';
 
 import { Container, FormCamera, SelectCamera, Camera, Cam } from './styles';
 
-import { sendImage } from '../../services/localData';
+import { sendImageLocal, sendImageServer } from '../../services/localData';
 
 function Cameras() {
 
@@ -37,12 +37,16 @@ function Cameras() {
   }
 
   const capture = useCallback(async () => {
-    const imgOne = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
-    const imgTwo = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
+    const plate = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
+    const face = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
 
-    const response = await sendImage(imgOne, imgTwo);
+    const responseLocal = await sendImageLocal(plate, face);
 
-    console.log(response.data);
+    console.log(responseLocal.data);
+
+    const responseServer = await sendImageServer(responseLocal.data.plate, responseLocal.data.face);
+
+    console.log(responseServer.data);
 
   }, [camOneRef, camTwoRef]);
 
