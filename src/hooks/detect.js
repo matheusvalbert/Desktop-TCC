@@ -2,7 +2,7 @@ import React, { useRef, createContext, useContext } from 'react';
 
 import { sendImages } from '../services/recognition';
 
-const { PythonShell } = window.require('python-shell');
+const { spawn } = window.require('child_process');
 
 const DetectContext = createContext();
 
@@ -10,19 +10,32 @@ export function Detect({ children }) {
 
   const camOneRef = useRef(null);
   const camTwoRef = useRef(null);
+  var array = '';
 
-  const detect = new PythonShell('detection/detect.py', { mode: 'json', pythonOptions: ['-u'] });
+  const detect = spawn('python3', ['-u', 'detection/detect.py']);
 
-  detect.on('message', (message) => {
+  detect.stdout.on('data', (data) => {
+    array += `${data}`;
+    if(array[array.length - 2] === '}') {
+      sendImages(array);
+      array = '';
+    }
+  });
 
-    sendImages(message);
+  detect.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+  });
+
+  detect.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
   });
 
   function capture() {
     const plate = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
     const face = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
 
-    detect.send({ plate: plate, face: face });
+    detect.stdin.write(`{"plate": "${plate}", "face": "${face}"}\n`);
+    detect.stdin.pause();
   }
 
   return(
