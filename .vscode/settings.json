@@ -31,6 +31,7 @@
         "apagado",
         "apagar",
         "autorizado",
+        "browserslist",
         "datas",
         "desconhecido",
         "deseja",
@@ -43,6 +44,7 @@
         "morador",
         "necessariamente",
         "novamente",
+        "numpy",
         "o",
         "placas",
         "pode",
@@ -56,7 +58,8 @@
         "sucesso",
         "troca",
         "usu",
-        "usuário"
+        "usuário",
+        "yolov"
     ],
     "python.pythonPath": "/usr/local/bin/python3"
 }

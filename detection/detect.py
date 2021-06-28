@@ -1,20 +1,16 @@
-from flask import Flask, request
-from flask_cors import CORS
+import json
 import numpy as np
 import cv2
 import base64
 
 net = cv2.dnn.readNet('detection/yolov4.weights', 'detection/yolov4.cfg')
-
 classes = ['Plate', 'Face']
-
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
-color = (255,255,255)
 
 def detection(img, labelDetect):
 
-    height, width, channels = img.shape
+    height, width, _ = img.shape
 
     blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 
@@ -75,48 +71,46 @@ def base64encode(img):
     imgData = base64.b64encode(bytes)
     return imgData
 
-app = Flask(__name__)
-cors = CORS(app)
+def main():
+    while True:
+        jsonFile = input()
+        images = json.loads(jsonFile)
+        plateFlag = False
+        faceFlag = False
+        plate = images['plate']
+        face = images['face']
+        plate = base64decode(plate)
+        face = base64decode(face)
+        plate, plateLabel = detection(plate, 'Plate')
+        face, faceLabel = detection(face, 'Face')
+        if plateLabel == 'Plate':
+            try:
+                plate = base64encode(plate)
+                plateFlag = True
+            except:
+                pass
+        if faceLabel == 'Face':
+            try:
+                face = base64encode(face)
+                faceFlag = True
+            except:
+                pass
 
-@app.route('/images', methods=['POST'])
-def images():
-    plateFlag = False
-    faceFlag = False
-    plate = request.get_json().get('plate')
-    face = request.get_json().get('face')
-    plate = base64decode(plate)
-    face = base64decode(face)
-    plate, plateLabel = detection(plate, 'Plate')
-    face, faceLabel = detection(face, 'Face')
-    if plateLabel == 'Plate':
-        try:
-            plate = base64encode(plate)
-            plateFlag = True
-        except:
-            pass
-    if faceLabel == 'Face':
-        try:
-            face = base64encode(face)
-            faceFlag = True
-        except:
-            pass
+        if plateFlag == True:
+            plate = str(plate)
+            plate = plate[2:]
+            plate = plate[:-1]
+        if faceFlag == True:
+            face = str(face)
+            face = face[2:]
+            face = face[:-1]
 
-    if plateFlag == True:
-        plate = str(plate)
-        plate = plate[2:]
-        plate = plate[:-1]
-    if faceFlag == True:
-        face = str(face)
-        face = face[2:]
-        face = face[:-1]
-
-    if plateFlag == True and faceFlag == False:
-        return { 'plate': plate, 'face': False }
-    elif plateFlag == False and faceFlag == True:
-        return { 'plate': False, 'face': face }
-    elif plateFlag == False and faceFlag == False:
-        return { 'plate': False, 'face': False }
-    else:
-        return { 'plate': plate, 'face': face }
-
-app.run(host='localhost', port=5000)
+        if plateFlag == True and faceFlag == False:
+            print(json.dumps({ 'plate': plate, 'face': False }))
+        elif plateFlag == False and faceFlag == True:
+            print(json.dumps({ 'plate': False, 'face': face }))
+        elif plateFlag == False and faceFlag == False:
+            print(json.dumps({ 'plate': False, 'face': False }))
+        else:
+            print(json.dumps({ 'plate': plate, 'face': face }))
+main()

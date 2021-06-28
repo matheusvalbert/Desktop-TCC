@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect } from 'react';
 
 import { useVisibility } from '../../hooks/modal';
 import { useCamera } from '../../hooks/camera';
+import { useDetect } from '../../hooks/detect';
 
 import { Container, FormCamera, SelectCamera, Camera, Cam } from './styles';
 
-import { sendImageLocal, sendImageServer } from '../../services/localData';
-
 function Cameras() {
-
-  const camOneRef = useRef(null);
-  const camTwoRef = useRef(null);
 
   const { detection } = useVisibility();
   const { deviceInfo, setDeviceInfo, setDeviceOneSelected, setDeviceTwoSelected, deviceOneId, deviceTwoId } = useCamera();
+  const { camOneRef, camTwoRef, capture } = useDetect();
 
   useEffect(() => {
     camerasName();
@@ -35,20 +32,6 @@ function Cameras() {
       ));
     });
   }
-
-  const capture = useCallback(async () => {
-    const plate = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
-    const face = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
-
-    const responseLocal = await sendImageLocal(plate, face);
-
-    console.log(responseLocal.data);
-
-    const responseServer = await sendImageServer(responseLocal.data.plate, responseLocal.data.face);
-
-    console.log(responseServer.data);
-
-  }, [camOneRef, camTwoRef]);
 
   return(
     <Container>

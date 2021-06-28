@@ -1,14 +1,7 @@
 const { app, BrowserWindow } = require('electron');
-const { spawn } = require('child_process');
 
 const path = require('path');
 const isDev = require('electron-is-dev');
-
-const detect = spawn('python3', ['detection/detect.py']);
-
-process.on('exit', function() {
-  detect.kill();
-});
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -17,7 +10,8 @@ function createWindow() {
     width: 1680,
     height: 980,
     webPreferences: {
-      nodeIntegration: false
+      nodeIntegration: true,
+      contextIsolation: false
     }
   });
 
@@ -32,11 +26,12 @@ function createWindow() {
 
 app.on('ready', createWindow);
 
-app.on('window-all-closed', function () {
-  app.quit();
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin')
+    app.quit();
 });
 
-app.on('activate', function () {
+app.on('activate', () => {
   if(BrowserWindow.getAllWindows().length === 0)
     createWindow();
 });
