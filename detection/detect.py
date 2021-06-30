@@ -30,6 +30,18 @@ def detection(img, labelDetect):
                 center_y = int(detection[1] * height)
                 w = int(detection[2] * width)
                 h = int(detection[3] * height)
+                if width > w * 1.5:
+                    w = int(w * 1.5)
+                elif width > w * 1.25:
+                    w = int(w * 1.25)
+                else:
+                    w = width
+                if height > h * 1.5:
+                    h = int(h * 1.5)
+                elif height > h * 1.25:
+                    h = int(h * 1.25)
+                else:
+                    h = height
                 x = int(center_x - w / 2)
                 y = int(center_y - h / 2)
                 boxes.append([x, y, w, h])
@@ -54,7 +66,7 @@ def detection(img, labelDetect):
 
     if label_biggest != '':
         x, y, w, h = boxes_biggest
-        crop_img = img[y-25:y+h+25, x-25:x+w+25]
+        crop_img = img[y:y+h, x:x+w]
         return crop_img, label
     else:
         return '', ''
