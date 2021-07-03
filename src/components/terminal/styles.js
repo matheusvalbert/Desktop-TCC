@@ -22,3 +22,26 @@ export const Title = styled.h1`
   margin-top: 1vh;
   font-size: calc(1vh + 1vw);
 `;
+
+export const ImgDiv = styled.div`
+  margin-top: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Image = styled.img`
+  width: 20vw;
+  height: 20vh;
+  border-radius: calc(1vh + 1vw);
+`;
+
+export const InfoDiv = styled.div`
+  margin-left: 3vw;
+  margin-top: 1vh;
+`;
+
+export const InfoText = styled.h1`
+  font-size: calc(.75vh + .75vw);
+  margin-bottom: .5vh;
+`;
