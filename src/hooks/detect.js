@@ -11,10 +11,16 @@ const DetectContext = createContext();
 export function Detect({ children }) {
 
   const [ faceImg, setFaceImg ] = useState(imgProfile);
-  const [ type, setType ] = useState('');
-  const [ name, setName ] = useState('');
-  const [ number, setNumber ] = useState('');
-  const [ allowed, setAllowed ] = useState('');
+  const [ faceType, setFaceType ] = useState('');
+  const [ faceName, setFaceName ] = useState('');
+  const [ faceNumber, setFaceNumber ] = useState('');
+  const [ faceAllowed, setFaceAllowed ] = useState('');
+  const [ plateImg, setPlateImg ] = useState(imgProfile);
+  const [ plateType, setPlateType ] = useState('');
+  const [ plateName, setPlateName ] = useState('');
+  const [ plateNumber, setPlateNumber ] = useState('');
+  const [ plate, setPlate ] = useState('');
+  const [ plateAllowed, setPlateAllowed ] = useState('');
 
   const camOneRef = useRef(null);
   const camTwoRef = useRef(null);
@@ -43,14 +49,19 @@ export function Detect({ children }) {
     if(images.face !== false) {
       const responseFace = await sendFace({ face: images.face });
       setFaceImg(responseFace.data.imageName);
-      setType(responseFace.data.type);
-      setName(responseFace.data.name);
-      setNumber(responseFace.data.number);
-      setAllowed(responseFace.data.allowed);
+      setFaceType(responseFace.data.type);
+      setFaceName(responseFace.data.name);
+      setFaceNumber(responseFace.data.number);
+      setFaceAllowed(responseFace.data.allowed);
     }
     if(images.plate !== false) {
       const responsePlate = await sendPlate({ plate: images.plate });
-      console.log(responsePlate.data);
+      setPlateImg(responsePlate.data.imageName);
+      setPlateType(responsePlate.data.type);
+      setPlateName(responsePlate.data.name);
+      setPlateNumber(responsePlate.data.number);
+      setPlate(responsePlate.data.plate);
+      setPlateAllowed(responsePlate.data.allowed);
     }
   }
 
@@ -63,7 +74,7 @@ export function Detect({ children }) {
   }
 
   return(
-    <DetectContext.Provider value={{ camOneRef, camTwoRef, capture, faceImg, type, name, number, allowed }}>
+    <DetectContext.Provider value={{ camOneRef, camTwoRef, capture, faceImg, faceType, faceName, faceNumber, faceAllowed, plateImg, plateType, plateName, plateNumber, plate, plateAllowed }}>
       { children }
     </DetectContext.Provider>
   );

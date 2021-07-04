@@ -6,21 +6,32 @@ import { Container, Output, Title, ImgDiv, Image, InfoDiv, InfoText } from './st
 
 function Terminal() {
 
-  const { faceImg, type, name, number, allowed } = useDetect();
+  const {
+    faceImg, faceType, faceName, faceNumber, faceAllowed,
+    plateImg, plateType, plateName, plateNumber, plate, plateAllowed
+  } = useDetect();
 
   return(
     <Container>
       <Output>
         <Title>Detecção de placas</Title>
+        <ImgDiv><Image src={plateImg} /></ImgDiv>
+        <InfoDiv>
+          <InfoText>Tipo: {plateType}</InfoText>
+          <InfoText>Nome: {plateName}</InfoText>
+          <InfoText>Número da casa: {plateNumber}</InfoText>
+          <InfoText>Placa: {plate}</InfoText>
+          <InfoText>Entrada permitida: {plateAllowed}</InfoText>
+        </InfoDiv>
       </Output>
       <Output>
         <Title>Detecção de faces</Title>
         <ImgDiv><Image src={faceImg} /></ImgDiv>
         <InfoDiv>
-          <InfoText>Tipo: {type}</InfoText>
-          <InfoText>Nome: {name}</InfoText>
-          <InfoText>Número da casa: {number}</InfoText>
-          <InfoText>Entrada permitida: {allowed}</InfoText>
+          <InfoText>Tipo: {faceType}</InfoText>
+          <InfoText>Nome: {faceName}</InfoText>
+          <InfoText>Número da casa: {faceNumber}</InfoText>
+          <InfoText>Entrada permitida: {faceAllowed}</InfoText>
         </InfoDiv>
       </Output>
     </Container>
