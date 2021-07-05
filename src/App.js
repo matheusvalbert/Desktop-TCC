@@ -12,6 +12,7 @@ import { useVisibility } from './hooks/modal';
 
 import { Morador } from './hooks/morador';
 import { Ambiente } from './hooks/ambiente';
+import { Historico } from './hooks/historico';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       <Buttons />
 
       { reservasIsVisible ? <Reservas /> : null }
-      { gMIsVisible ? <Morador><Ambiente><GerenciarMoradores /></Ambiente></Morador> : null }
+      { gMIsVisible ? <Morador><Ambiente><Historico><GerenciarMoradores /></Historico></Ambiente></Morador> : null }
 
       <GlobalStyle />
     </>

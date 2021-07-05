@@ -42,21 +42,21 @@ function Reservas() {
 
   useEffect(() => {
     reservas();
-  }, [])
+  }, []);
 
   // eslint-disable-next-line array-callback-return
   const uList = reservasAmbiente?.map((item, index) => {
     for(var i = 0; i < datas.length; i++) {
       for(var j = 0; j < numbers.length; j++) {
         if(i === index && j === index)
-          return <Item>
+          return <Item key={i}>
             <TextItem>{item}</TextItem>
             <TextItem>{datas[i]}</TextItem>
             <TextItem>{numbers[j]}</TextItem>
           </Item>
       }
     }
-  })
+  });
 
   const closeModal = (e) => {
     if(e.target.id === 'modal')

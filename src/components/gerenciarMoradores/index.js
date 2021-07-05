@@ -6,17 +6,20 @@ import { Background, Container, Icon, Title, Form, FormButton, Submit, Text } fr
 import { useVisibility } from '../../hooks/modal';
 import { useMorador } from '../../hooks/morador';
 import { useAmbiente } from '../../hooks/ambiente';
+import { useHistorico } from '../../hooks/historico';
 
 import Login from '../login';
 import AlterarMorador from '../alterarMorador';
 import AdicionarMorador from '../adicionarMorador';
 import Ambientes from '../ambientes';
+import Historico from '../historico';
 
 function GerenciarMoradores() {
 
   const { setGMIsVisible } = useVisibility();
   const { logged, page, setPage } = useMorador();
   const { ambientesList } = useAmbiente();
+  const { historico } = useHistorico();
 
   const closeModal = (e) => {
     if(e.target.id === 'modal')
@@ -45,7 +48,7 @@ function GerenciarMoradores() {
               <Submit onClick={ () => { setPage('Ambiente'); ambientesList() } }>
                 <Text>Gerenciar Ambientes</Text>
               </Submit>
-              <Submit onClick={ () => { setPage('') } }>
+              <Submit onClick={ () => { setPage('Historico'); historico() } }>
                 <Text>Histórico de entradas</Text>
               </Submit>
             </FormButton>
@@ -62,6 +65,10 @@ function GerenciarMoradores() {
           page === 'Ambiente'
           ?
             <Ambientes />
+          :
+          page === 'Historico'
+          ?
+            <Historico />
           :
             null
         :
