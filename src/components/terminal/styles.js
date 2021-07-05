@@ -42,6 +42,6 @@ export const InfoDiv = styled.div`
 `;
 
 export const InfoText = styled.h1`
-  font-size: calc(.75vh + .75vw);
+  font-size: calc(.68vh + .68vw);
   margin-bottom: .5vh;
 `;
