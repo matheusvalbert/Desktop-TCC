@@ -66,8 +66,8 @@ export function Detect({ children }) {
   }
 
   function capture() {
-    const plate = camOneRef.current.getScreenshot({ width: 1920, height: 1080 });
-    const face = camTwoRef.current.getScreenshot({ width: 1920, height: 1080 });
+    const plate = camOneRef.current.getScreenshot();
+    const face = camTwoRef.current.getScreenshot();
 
     detect.stdin.write(`{"plate": "${plate}", "face": "${face}"}\n`);
     detect.stdin.pause();
