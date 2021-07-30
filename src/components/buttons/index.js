@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Container, Button, ButtonRed } from './styles';
+import { Container, Button, ButtonRed, ButtonGreen } from './styles';
 
 import { useVisibility } from '../../hooks/modal';
 import { useCamera } from '../../hooks/camera';
 
 function Buttons() {
 
-  const { detection, setDetection, setReservasIsVisible, setGMIsVisible } = useVisibility();
+  const { detection, setDetection, setNotification, setNewVisitor, setVisitorHistory, visitorColor, setVisitorColor, setReservasIsVisible, setGMIsVisible } = useVisibility();
   const { deviceInfo, deviceOneSelected, deviceTwoSelected, setDeviceOneId, setDeviceTwoId } = useCamera();
 
   const detectionStart = () => {
@@ -36,6 +36,23 @@ function Buttons() {
           :
         <Button onClick={ () => { detectionStart() } }>
           <h1>Iniciar Detecção</h1>
+        </Button>
+      }
+      <Button onClick={() => { setNotification(true) }}>
+        <h1>Nova notificação</h1>
+      </Button>
+      <Button onClick={() => { setNewVisitor(true) }}>
+        <h1>Chegada visitante não cadastrado</h1>
+      </Button>
+      {
+        visitorColor
+          ?
+        <ButtonGreen onClick={() => { setVisitorHistory(true); setVisitorColor(false) }}>
+          <h1>Histórico visitante não cadastrado</h1>
+        </ButtonGreen>
+          :
+        <Button onClick={() => { setVisitorHistory(true) }}>
+          <h1>Histórico visitante não cadastrado</h1>
         </Button>
       }
       <Button onClick={() => { setReservasIsVisible(true) }}>

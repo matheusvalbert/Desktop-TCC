@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 
 import { useVisibility } from '../../hooks/modal';
@@ -14,8 +14,8 @@ function Reservas() {
   const { setReservasIsVisible } = useVisibility();
 
   const [ reservasAmbiente, setReservasAmbiente ] = useState([]);
-  const [ datas, setDatas ] = useState({ });
-  const [ numbers, setNumbers ] = useState({ });
+  const [ datas, setDatas ] = useState([]);
+  const [ numbers, setNumbers ] = useState([]);
 
   async function reservas() {
 
@@ -29,11 +29,11 @@ function Reservas() {
       ambiente.push(nomeAmbiente);
     });
     response.data.datas.forEach(data => {
-        datas.push(data);
+        datas.push('Data: ' + data);
     });
     response.data.number.forEach(number => {
       numbers.push(number);
-    })
+    });
 
     setReservasAmbiente(ambiente);
     setDatas(datas);
@@ -60,7 +60,7 @@ function Reservas() {
 
   const closeModal = (e) => {
     if(e.target.id === 'modal')
-    setReservasIsVisible(false);
+      setReservasIsVisible(false);
   }
 
   return(
