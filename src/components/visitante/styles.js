@@ -59,5 +59,32 @@ export const FormUpdate = styled.div`
 
 export const Title = styled.h3`
   font-size: calc(1.5vh + 1.5vw);
-  padding-bottom: 1vh;
+  padding-bottom: 9vh;
+`;
+
+export const Text = styled.h1`
+  font-size: calc(1vh + 1vw);
+  margin-bottom: 1.5vh;
+`;
+
+export const Input = styled.input`
+  height: 5vh;
+  width: 20vw;
+  margin-bottom: 2vh;
+  font-size: calc(1vh + 1vw);
+  padding-left: calc(.5vh + .5vw);
+  border-radius: calc(.5vh + .5vw);
+`;
+
+export const Submit = styled.button`
+  background: #1520AB;
+  height: 8vh;
+  width: 18vw;
+  border-color: #F2F2F2;
+  border-radius: calc(1vh + 1vw);
+`;
+
+export const TextSubmit = styled.h1`
+  font-size: calc(1vh + 1vw);
+  color: #FFF;
 `;
