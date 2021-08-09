@@ -50,6 +50,5 @@ export const Cam = styled(Webcam).attrs({
   border-radius: calc(.6vh + .6vw);
   height: 39vh;
   width: 34vw;
-  position: relative;
-  object-fit: fill;
+  object-fit: cover;
 `;
