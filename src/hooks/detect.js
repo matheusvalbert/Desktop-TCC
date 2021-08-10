@@ -11,6 +11,7 @@ const DetectContext = createContext();
 export function Detect({ children }) {
 
   const [ faceImg, setFaceImg ] = useState(imgProfile);
+  const [ detectionBtn, setDetectionBtn ] = useState(false);
   const [ faceType, setFaceType ] = useState('');
   const [ faceName, setFaceName ] = useState('');
   const [ faceNumber, setFaceNumber ] = useState('');
@@ -66,15 +67,22 @@ export function Detect({ children }) {
   }
 
   function capture() {
-    const plate = camOneRef.current.getScreenshot();
-    const face = camTwoRef.current.getScreenshot();
+    try {
+      const plate = camOneRef.current.getScreenshot();
+      const face = camTwoRef.current.getScreenshot();
 
-    detect.stdin.write(`{"plate": "${plate}", "face": "${face}"}\n`);
-    detect.stdin.pause();
+      if(plate !== null && face !== null) {
+        detect.stdin.write(`{"plate": "${plate}", "face": "${face}"}\n`);
+        detect.stdin.pause();
+      }
+    }
+    catch (err) {
+
+    }
   }
 
   return(
-    <DetectContext.Provider value={{ camOneRef, camTwoRef, capture, faceImg, faceType, faceName, faceNumber, faceAllowed, plateImg, plateType, plateName, plateNumber, plate, plateAllowed }}>
+    <DetectContext.Provider value={{ detectionBtn, setDetectionBtn, camOneRef, camTwoRef, capture, faceImg, faceType, faceName, faceNumber, faceAllowed, plateImg, plateType, plateName, plateNumber, plate, plateAllowed }}>
       { children }
     </DetectContext.Provider>
   );

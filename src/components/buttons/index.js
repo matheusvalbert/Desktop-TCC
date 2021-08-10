@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Container, Button, ButtonRed, ButtonGreen } from './styles';
 
 import { useVisibility } from '../../hooks/modal';
 import { useCamera } from '../../hooks/camera';
+import { useDetect } from '../../hooks/detect';
 
 function Buttons() {
 
-  const { detection, setDetection, setNotification, setNewVisitor, setVisitorHistory, visitorColor, setVisitorColor, setReservasIsVisible, setGMIsVisible } = useVisibility();
+  const { setNotification, setNewVisitor, setVisitorHistory, visitorColor, setVisitorColor, setReservasIsVisible, setGMIsVisible } = useVisibility();
   const { deviceInfo, deviceOneSelected, deviceTwoSelected, setDeviceOneId, setDeviceTwoId } = useCamera();
+  const { detectionBtn, setDetectionBtn, capture } = useDetect();
+
+  var delay = ms => new Promise(res => setTimeout(res, ms));
 
   const detectionStart = () => {
 
@@ -21,16 +25,27 @@ function Buttons() {
         if(device.label === deviceTwoSelected)
           setDeviceTwoId(device.deviceId);
       });
-      setDetection(!detection);
+      setDetectionBtn(!detectionBtn);
     }
   }
+
+  useEffect(() => {
+    function callCapture() {
+      delay(3000).then(async () => {
+        capture();
+        callCapture();
+      });
+    }
+    callCapture();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return(
     <Container>
       {
-        detection
+        detectionBtn
           ?
-        <ButtonRed onClick={ () => { setDetection(!detection) } }>
+        <ButtonRed onClick={ () => { setDetectionBtn(!detectionBtn) } }>
           <h1>Parar Detecção</h1>
         </ButtonRed>
           :

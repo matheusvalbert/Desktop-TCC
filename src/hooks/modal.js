@@ -4,7 +4,6 @@ const Visibility = createContext();
 
 export function GerenciarMoradoresHook({ children }) {
 
-  const [ detection, setDetection ] = useState(false);
   const [ notification, setNotification ] = useState(false);
   const [ newVisitor, setNewVisitor ] = useState(false);
   const [ visitorHistory, setVisitorHistory ] = useState(false);
@@ -14,7 +13,6 @@ export function GerenciarMoradoresHook({ children }) {
 
   return(
     <Visibility.Provider value={{
-      detection, setDetection,
       notification, setNotification,
       newVisitor, setNewVisitor,
       visitorHistory, setVisitorHistory,

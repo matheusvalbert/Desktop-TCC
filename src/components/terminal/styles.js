@@ -20,6 +20,7 @@ export const Output = styled.div`
 export const Title = styled.h1`
   text-align: center;
   margin-top: 1vh;
+  margin-bottom: 1vh;
   font-size: calc(1vh + 1vw);
 `;
 
@@ -27,6 +28,7 @@ export const ImgDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1vh;
 `;
 
 export const Image = styled.img`
