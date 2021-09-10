@@ -56,7 +56,9 @@
   },
   "build": {
     "extraFiles": [
-      "detection"
+      "detection/detect.exe",
+      "detection/yolov4.cfg",
+      "detection/yolov4.weights"
     ]
   }
 }
