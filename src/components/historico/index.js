@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillCaretLeft } from "react-icons/ai";
+import { AiFillCaretLeft } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 
 import { Container, Back, Form, FormUpdate, Title, IconPadding, ScrollList, Item, TextItem } from './styles';
@@ -19,10 +19,10 @@ function Historico() {
         for(var k = 0; k < type.length; k++) {
           if(i === index && j === index && k === index)
             return <Item key={i}>
-              <TextItem>{item}</TextItem>
-              <TextItem>{date[i]}</TextItem>
-              <TextItem>{number[j]}</TextItem>
-              <TextItem>{type[k]}</TextItem>
+              <TextItem>Nome: {item}</TextItem>
+              <TextItem>Data: {date[i]}</TextItem>
+              <TextItem>Numero: {number[j]}</TextItem>
+              <TextItem>Tipo: {type[k]}</TextItem>
             </Item>
         }
       }

@@ -1,6 +1,4 @@
 import React, { useState, createContext, useContext } from 'react';
-
-import api from '../services/api';
 import { login, getUsers } from '../services/register';
 
 const MoradorContext = createContext();
@@ -21,7 +19,6 @@ export function Morador({ children }) {
     try {
       const response = await login(username, password);
       if(response.data.uid === 1) {
-        api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
         usersList();
         setLogged(true);
       }

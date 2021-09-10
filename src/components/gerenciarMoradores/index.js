@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from 'react-icons/ai';
 
 import { Background, Container, Icon, Title, Form, FormButton, Submit, Text } from './styles';
 

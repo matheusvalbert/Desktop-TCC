@@ -10,8 +10,6 @@
     "axios": "^0.21.1",
     "concurrently": "^6.1.0",
     "cross-env": "^7.0.3",
-    "electron": "^12.0.7",
-    "electron-builder": "^22.10.5",
     "electron-is-dev": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,6 +19,10 @@
     "styled-components": "^5.3.0",
     "wait-on": "^5.3.0",
     "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7"
   },
   "main": "public/main.js",
   "homepage": "./",
@@ -50,6 +52,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "build": {
+    "extraFiles": [
+      "detection"
     ]
   }
 }

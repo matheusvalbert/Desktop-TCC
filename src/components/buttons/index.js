@@ -20,9 +20,9 @@ function Buttons() {
       alert('Selecione as câmeras para iniciar a detecção (as câmeras necessariamente precisam ser diferentes');
     else {
       deviceInfo.forEach(device => {
-        if(device.label === deviceOneSelected)
+        if(device.deviceId === deviceOneSelected)
           setDeviceOneId(device.deviceId);
-        if(device.label === deviceTwoSelected)
+        if(device.deviceId === deviceTwoSelected)
           setDeviceTwoId(device.deviceId);
       });
       setDetectionBtn(!detectionBtn);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AiFillCaretRight, AiFillCaretLeft, AiOutlineClose } from "react-icons/ai";
+import { AiFillCaretRight, AiFillCaretLeft, AiOutlineClose } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 
 import { Container, Form, Title, ScrollList, FormSenha, FormNovaSenha, TextSenha, Input, Submit, SubmitYes, SubmitNo, Text, Item, TextItem, DivIcon, FormUpdate, IconPadding, Back, FormButtons } from './styles';

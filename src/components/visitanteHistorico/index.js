@@ -31,13 +31,13 @@ function VisitanteHistorico() {
       name.push(nome);
     });
     response.data.date.forEach(data => {
-      date.push('Data: ' + data);
+      date.push(data);
     });
     response.data.number.forEach(number => {
-      numbers.push('Número: ' + number);
+      numbers.push(number);
     });
     response.data.authorized.forEach(autorizado => {
-      authorized.push('Autorizado: ' + autorizado);
+      authorized.push(autorizado);
     });
 
     setVisitors(name);
@@ -57,10 +57,10 @@ function VisitanteHistorico() {
         for(var k = 0; k < authorizeds.length; k++) {
           if(i === index && j === index && k === index)
             return <Item key={i}>
-              <TextItem>{item}</TextItem>
-              <TextItem>{datas[i]}</TextItem>
-              <TextItem>{numbers[j]}</TextItem>
-              <TextItem>{authorizeds[k]}</TextItem>
+              <TextItem>Nome: {item}</TextItem>
+              <TextItem>Data: {datas[i]}</TextItem>
+              <TextItem>Numero: {numbers[j]}</TextItem>
+              <TextItem>Autorizado: {authorizeds[k]}</TextItem>
             </Item>
         }
       }

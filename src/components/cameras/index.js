@@ -17,7 +17,7 @@ function Cameras() {
   const uList = deviceInfo?.map((cameraName, index) => {
     return(
       <option key={index}>
-        {cameraName.label}
+        {cameraName.label} {cameraName.deviceId}
       </option>
     );
   });
@@ -34,7 +34,7 @@ function Cameras() {
   return(
     <Container>
       <FormCamera>
-        <SelectCamera disabled={detectionBtn} onChange={e => setDeviceOneSelected(e.target.value)}>
+        <SelectCamera disabled={detectionBtn} onChange={e => setDeviceOneSelected(e.target.value.split(' ')[e.target.value.split(' ').length - 1])}>
           <option>Selecione uma câmera...</option>
           {uList}
         </SelectCamera>
@@ -52,7 +52,7 @@ function Cameras() {
         </Camera>
       </FormCamera>
       <FormCamera>
-        <SelectCamera disabled={detectionBtn} onChange={e => setDeviceTwoSelected(e.target.value)}>
+        <SelectCamera disabled={detectionBtn} onChange={e => setDeviceTwoSelected(e.target.value.split(' ')[e.target.value.split(' ').length - 1])}>
           <option>Selecione uma câmera...</option>
           {uList}
         </SelectCamera>
