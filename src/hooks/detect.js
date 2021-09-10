@@ -5,6 +5,7 @@ import { sendFace, sendPlate } from '../services/recognition';
 import imgProfile from '../img/profile.png';
 
 const { spawn } = window.require('child_process');
+//const { exec } = window.require('child_process');
 
 const DetectContext = createContext();
 
@@ -28,10 +29,11 @@ export function Detect({ children }) {
   var array = '';
 
   const detect = spawn('python3', ['-u', 'detection/detect.py']);
+  //const detect = exec('detection\\detect.exe')
 
   detect.stdout.on('data', (data) => {
     array += `${data}`;
-    if(array[array.length - 2] === '}') {
+    if(array[array.length - 3] === '}') {
       detectImages();
       array = '';
     }
