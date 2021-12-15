@@ -21,3 +21,8 @@ O sistema possibilita que o próprio morador realize o seu cadastro e de seus vi
 yarn install
 yarn electron:dev
 ```
+# Outros repositórios do projeto
+
+- Servidor: https://github.com/matheusvalbert/Server-TCC
+- Mobile: https://github.com/matheusvalbert/Mobile-TCC
+- Placas: https://github.com/matheusvalbert/Placas-TCC
