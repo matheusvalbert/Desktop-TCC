@@ -21,6 +21,12 @@ O sistema possibilita que o próprio morador realize o seu cadastro e de seus vi
 yarn install
 yarn electron:dev
 ```
+# Principal tela do sistema
+
+<p align="center">
+  <img src="https://github.com/matheusvalbert/Desktop-TCC/blob/master/tela.png" />
+</p>
+
 # Outros repositórios do projeto
 
 - Servidor: https://github.com/matheusvalbert/Server-TCC
