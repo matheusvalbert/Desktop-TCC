@@ -17,6 +17,10 @@ O sistema possibilita que o próprio morador realize o seu cadastro e de seus vi
 - Chegada visitante não cadastrado: possibilita que o porteiro envie uma notificação para os moradores de uma casa dizendo que a visita chegou, informando seu nome e a possibilidade de aceitar ou recusar a visita.
 
 # Como utilizar
+
+Realizar o download do modelo de yolov4 e adicionar na pasta Desktop-TCC/detection
+Link para download: https://drive.google.com/file/d/1_kj-_aTknTfWhn-bMuBy8EfIotInHjgA/view?usp=sharing
+
 ```
 yarn install
 yarn electron:dev
